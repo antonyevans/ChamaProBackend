@@ -1,4 +1,14 @@
 ChamaProBackend::Application.routes.draw do
+  resources :clients
+
+  resources :balances
+
+  resources :groups
+
+  resources :managerscashes
+
+  resources :transactions
+
   resources :users
 
   # The priority is based upon order of creation:
