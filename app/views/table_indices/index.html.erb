@@ -3,7 +3,6 @@
 <table>
   <tr>
     <th>Tablename</th>
-    <th>Table url</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,8 +10,7 @@
 
 <% @table_indices.each do |table_index| %>
   <tr>
-    <td><%= table_index.tableName %></td>
-    <td><%= table_index.table_URL %></td>
+    <td><%= link_to table_index.tableName, :controller => table_index.table_URL %></td>
     <td><%= link_to 'Show', table_index %></td>
     <td><%= link_to 'Edit', edit_table_index_path(table_index) %></td>
     <td><%= link_to 'Destroy', table_index, :confirm => 'Are you sure?', :method => :delete %></td>
