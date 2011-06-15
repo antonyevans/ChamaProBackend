@@ -8,7 +8,12 @@ class CreateTableIndices < ActiveRecord::Migration
     end
     
     TableIndex.create :tableName => 'Users', :table_URL => 'users'
-    
+    TableIndex.create :tableName => 'Transactions', :table_URL => 'transactions'
+    TableIndex.create :tableName => 'Managers Cash', :table_URL => 'managerscashes'
+    TableIndex.create :tableName => 'Groups', :table_URL => 'groups'
+    TableIndex.create :tableName => 'Balances', :table_URL => 'balances'
+    TableIndex.create :tableName => 'Clients', :table_URL => 'clients' 
+       
   end
 
   def self.down
