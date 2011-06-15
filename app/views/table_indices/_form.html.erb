@@ -1,0 +1,25 @@
+<%= form_for(@table_index) do |f| %>
+  <% if @table_index.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@table_index.errors.count, "error") %> prohibited this table_index from being saved:</h2>
+
+      <ul>
+      <% @table_index.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tableName %><br />
+    <%= f.text_field :tableName %>
+  </div>
+  <div class="field">
+    <%= f.label :table_URL %><br />
+    <%= f.text_field :table_URL %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

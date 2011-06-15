@@ -1,4 +1,6 @@
 ChamaProBackend::Application.routes.draw do
+  resources :table_indices
+
   resources :clients
 
   resources :balances

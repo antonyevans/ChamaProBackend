@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Tablename:</b>
+  <%= @table_index.tableName %>
+</p>
+
+<p>
+  <b>Table url:</b>
+  <%= @table_index.table_URL %>
+</p>
+
+
+<%= link_to 'Edit', edit_table_index_path(@table_index) %> |
+<%= link_to 'Back', table_indices_path %>
