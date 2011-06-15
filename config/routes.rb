@@ -12,6 +12,8 @@ ChamaProBackend::Application.routes.draw do
   resources :transactions
 
   resources :users
+  
+  root :to => "table_indices#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
