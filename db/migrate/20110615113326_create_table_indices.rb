@@ -6,6 +6,9 @@ class CreateTableIndices < ActiveRecord::Migration
 
       t.timestamps
     end
+    
+    TableIndex.create :tableName => 'Users' :table_URL = 'users'
+    
   end
 
   def self.down
