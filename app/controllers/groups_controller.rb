@@ -16,6 +16,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
 
     respond_to do |format|
+      # format.json { render :json => @group }
       format.html # show.html.erb
       format.xml  { render :xml => @group }
     end
@@ -29,6 +30,7 @@ class GroupsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @group }
+      format.json  { render :json => @group }
     end
   end
 
@@ -46,9 +48,11 @@ class GroupsController < ApplicationController
       if @group.save
         format.html { redirect_to(@group, :notice => 'Group was successfully created.') }
         format.xml  { render :xml => @group, :status => :created, :location => @group }
+        format.xml  { render :json => @group, :status => :created, :location => @group }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @group.errors, :status => :unprocessable_entity }
+        format.xml  { render :json => @group.errors, :status => :unprocessable_entity }
       end
     end
   end
