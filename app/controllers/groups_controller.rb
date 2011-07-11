@@ -7,6 +7,7 @@ class GroupsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @groups }
+      format.json  { render :json => @group }
     end
   end
 
@@ -19,6 +20,7 @@ class GroupsController < ApplicationController
       # format.json { render :json => @group }
       format.html # show.html.erb
       format.xml  { render :xml => @group }
+      format.json  { render :json => @group }
     end
   end
 
@@ -42,20 +44,20 @@ class GroupsController < ApplicationController
   # POST /groups
   # POST /groups.xml
   def create
-    @group = Group.new(params[:group])
+     @group = Group.new(params[:group])
 
-    respond_to do |format|
-      if @group.save
-        format.html { redirect_to(@group, :notice => 'Group was successfully created.') }
-        format.xml  { render :xml => @group, :status => :created, :location => @group }
-        format.xml  { render :json => @group, :status => :created, :location => @group }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @group.errors, :status => :unprocessable_entity }
-        format.xml  { render :json => @group.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
+     respond_to do |format|
+       if @group.save
+         format.html { redirect_to(@group, :notice => 'Group was successfully created.') }
+         format.xml  { render :xml => @group, :status => :created, :location => @group }
+         format.json  { render :json => @group }
+       else
+         format.html { render :action => "new" }
+         format.xml  { render :xml => @group.errors, :status => :unprocessable_entity }
+         format.json  { render :json => @group.errors, :status => :unprocessable_entity }
+       end
+     end
+   end
 
   # PUT /groups/1
   # PUT /groups/1.xml

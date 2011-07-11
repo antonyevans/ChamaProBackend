@@ -7,6 +7,7 @@ class TransactionsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @transactions }
+      format.json  { render :json => @transactions }
     end
   end
 
@@ -18,6 +19,7 @@ class TransactionsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @transaction }
+      format.json  { render :json => @transaction }
     end
   end
 
@@ -29,6 +31,7 @@ class TransactionsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @transaction }
+      format.json  { render :json => @transaction }
     end
   end
 
@@ -46,9 +49,11 @@ class TransactionsController < ApplicationController
       if @transaction.save
         format.html { redirect_to(@transaction, :notice => 'Transaction was successfully created.') }
         format.xml  { render :xml => @transaction, :status => :created, :location => @transaction }
+        format.json  { render :json => @transaction, :status => :created, :location => @transaction }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @transaction.errors, :status => :unprocessable_entity }
+        format.json  { render :json => @transaction.errors, :status => :unprocessable_entity }
       end
     end
   end

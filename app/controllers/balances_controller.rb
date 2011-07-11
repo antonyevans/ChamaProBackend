@@ -7,6 +7,7 @@ class BalancesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @balances }
+      format.json  { render :json => @balances }
     end
   end
 
@@ -18,6 +19,7 @@ class BalancesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @balance }
+      format.json  { render :json => @balance }
     end
   end
 
@@ -29,6 +31,7 @@ class BalancesController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @balance }
+      format.json  { render :json => @balance }
     end
   end
 
@@ -46,9 +49,11 @@ class BalancesController < ApplicationController
       if @balance.save
         format.html { redirect_to(@balance, :notice => 'Balance was successfully created.') }
         format.xml  { render :xml => @balance, :status => :created, :location => @balance }
+        format.json  { render :json => @balance, :status => :created, :location => @balance }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @balance.errors, :status => :unprocessable_entity }
+        format.json  { render :json => @balance.errors, :status => :unprocessable_entity }
       end
     end
   end
