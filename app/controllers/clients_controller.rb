@@ -7,6 +7,7 @@ class ClientsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @clients }
+      format.json  { render :json => @clients }
     end
   end
 
@@ -18,6 +19,7 @@ class ClientsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @client }
+      format.json  { render :json => @client }
     end
   end
 
@@ -29,6 +31,7 @@ class ClientsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @client }
+      format.json  { render :json => @client }
     end
   end
 
@@ -46,9 +49,11 @@ class ClientsController < ApplicationController
       if @client.save
         format.html { redirect_to(@client, :notice => 'Client was successfully created.') }
         format.xml  { render :xml => @client, :status => :created, :location => @client }
+        format.json  { render :json => @client, :status => :created, :location => @client }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @client.errors, :status => :unprocessable_entity }
+        format.json  { render :json => @client.errors, :status => :unprocessable_entity }
       end
     end
   end
